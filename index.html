@@ -68,45 +68,6 @@
         a:hover::after {
             transform: scaleX(1); /* Scale the line to its full width on hover */
         }
-        .dropdown {
-            position: relative;
-            cursor: pointer;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            min-width: 200px;
-            z-index: 1;
-            transform: translateY(100%) scale(0.95);
-            transition: transform 0.3s ease;
-            padding: 10px;
-            opacity: 0;
-        }
-        .dropdown.open .dropdown-content {
-            display: block;
-            transform: translateY(0%) scale(0.8);
-            opacity: 1;
-        }
-        .dropdown-option {
-            color: #000;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 15px;
-            margin-left: -35px;
-            text-align: center;
-        }
-        .dropdown .arrow-down {
-            position: absolute;
-            top: 50%;
-            left: 105%; /* Adjusted position to the right */
-            transform: translateY(-50%);
-            width: 0;
-            height: 0;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-top: 5px solid black; /* Set the arrow color to black */
-        }
         .vertical-line {
             position: absolute;
             bottom: 0;
@@ -209,18 +170,6 @@
             <li><a href="./ex.html">Exploits</a></li>
             <li><a href="./pr.html">Proxies</a></li>
         </div>
-        <div class="dropdown">
-            <a class="nav-link">Cloak Tab<span class="arrow-down"></span></a>
-            <div class="dropdown-content">
-                <a href="#" class="nav-link dropdown-option" onclick="changeFaviconAndTitle('https://www.google.com/favicon.ico', 'Google')">Google</a>
-                <a href="#" class="nav-link dropdown-option" onclick="changeFaviconAndTitle('https://ssl.gstatic.com/images/branding/product/2x/hh_drive_96dp.png', 'Google Drive')">Google Drive</a>
-                <a href="#" class="nav-link dropdown-option" onclick="changeFaviconAndTitle('https://raw.githubusercontent.com/PlayFlixo/playflixo/main/Assets/google-doc-favicon.png', 'Google Docs')">Google Docs</a>
-                <a href="#" class="nav-link dropdown-option" onclick="changeFaviconAndTitle('https://assets-global.website-files.com/5d6db64572061db9c481aaeb/60182f5c9e9d2a1f6fead710_classlink-icon-symbol-large.png', 'Wildcat Launchpad')">ClassLink</a>
-                <a href="#" class="nav-link dropdown-option" onclick="changeFaviconAndTitle('https://i0.wp.com/www.mpslakers.com/wp-content/uploads/2020/01/schoology-logo.png?fit=511%2C511&ssl=1', 'Home | Schoology')">Schoology</a>
-                <a href="#" class="nav-link dropdown-option" onclick="changeFaviconAndTitle('https://resources.finalsite.net/images/f_auto,q_auto,t_image_size_1/v1667482730/drk12org/idrzgqs3vcg2upruomdg/ic.png', 'Infinite Campus')">Infinite Campus</a>
-                <a href="#" class="nav-link dropdown-option" onclick="changeFaviconAndTitle('https://assets.clever.com/resource-icons/apps/5fd279ea0ab69b00013f8036/icon_60043f6.png', 'SmartPass')">SmartPass</a>
-            </div>
-        </div>
     </ul>
 </nav>
 
@@ -250,14 +199,6 @@
         // Change tab title
         document.title = title;
     }
-
-    var dropdowns = document.querySelectorAll('.dropdown');
-
-    dropdowns.forEach(function(dropdown) {
-        dropdown.addEventListener('click', function() {
-            dropdown.classList.toggle('open');
-        });
-    });
 </script>
 
 </body>
