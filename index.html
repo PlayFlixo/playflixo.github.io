@@ -1,1 +1,264 @@
-gay test 1
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Neutron</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            position: relative; /* Ensure the body is positioned relatively */
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 9%; /* Position the line 8% from the top */
+            left: 0;
+            width: 100%;
+            height: 4px; /* Set the height of the line */
+            background-color: #026286; /* Color of the line */
+            z-index: 999; /* Ensure the line is above other content */
+        }
+        nav {
+            background-color: transparent; /* Semi-transparent white background */
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000; /* Ensure the navigation bar is above other content */
+            top: 0.75%; /* Adjusting the position from the top */
+            display: flex; /* Make the navigation bar a flex container */
+            justify-content: space-between; /* Spread the items evenly */
+            align-items: center; /* Center the items vertically */
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            display: flex; /* Make the list a flex container */
+        }
+        li {
+            margin: 0 20px;
+        }
+        a {
+            position: relative;
+            color: black; /* Set the text color to black */
+            text-decoration: none;
+            font-size: 24px; /* Set the font size to 24px */
+            font-weight: bold; /* Make the text bold */
+            font-family: 'Lexend', sans-serif; /* Use the Lexend font */
+        }
+        a::before,
+        a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0; /* Set the left position to 0 */
+            width: 100%; /* Set the width to 100% */
+            height: 4px; /* Increase the height of the line */
+            background-color: black; /* Set the line color to black */
+            transition: transform 0.3s ease-in-out;
+            transform: scaleX(0); /* Initially scale the line to 0 */
+            transform-origin: center; /* Set the transform origin to the center */
+        }
+        a:hover::before,
+        a:hover::after {
+            transform: scaleX(1); /* Scale the line to its full width on hover */
+        }
+        .dropdown {
+            position: relative;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            min-width: 200px;
+            z-index: 1;
+            transform: translateY(100%) scale(0.95);
+            transition: transform 0.3s ease;
+            padding: 10px;
+            opacity: 0;
+        }
+        .dropdown.open .dropdown-content {
+            display: block;
+            transform: translateY(0%) scale(0.8);
+            opacity: 1;
+        }
+        .dropdown-option {
+            color: #000;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 15px;
+            margin-left: -35px;
+            text-align: center;
+        }
+        .dropdown .arrow-down {
+            position: absolute;
+            top: 50%;
+            left: 105%; /* Adjusted position to the right */
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid black; /* Set the arrow color to black */
+        }
+        .vertical-line {
+            position: absolute;
+            bottom: 0;
+            right: 33.33%; /* Position the line 33.33% from the right side */
+            height: 91%;
+            width: 4px; /* Set the width of the line */
+            background-color: #026286; /* Color of the line */
+            z-index: 999; /* Ensure the line is above other content */
+        }
+        .homepage {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://github.com/PlayFlixo/project-neutron/raw/main/assets/images/bg-home.png');
+            /* Corrected URL by changing 'blob' to 'raw' */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            z-index: 0; /* Ensure the background image is behind the navigation bar */
+        }
+        .announcements {
+            position: absolute;
+            top: 5%;
+            right: 0;
+            width: 33.33%;
+            height: 50%;
+            color: #000000;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: auto;
+            text-align: center; /* Center align text */
+            z-index: 100; /* Ensure announcements are above the background image */
+        }
+        .announcements h2 {
+            font-size: 32px; /* Changed to 21px */
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .announcements p {
+            font-size: 16px; /* Changed to 16px */
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .horizontal-line {
+            position: absolute;
+            bottom: 45.5%; /* Position the line 45.5% from the bottom */
+            right: 0; /* Position the line 33.33% from the right side */
+            width: 33.33%; /* Set the width of the line */
+            height: 4px; /* Set the height of the line */
+            background-color: #026286; /* Color of the line */
+            z-index: 999; /* Ensure the line is above other content */
+        }
+        .bottom-right-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 3.33%; /* Adjusted to 3.33% from the right */
+            left: 69.6666%; /* Adjusted to 69.6666% from the left */
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .bottom-right-buttons button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: transparent;
+            color: #000;
+            border: 2px solid #026286;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .bottom-right-buttons button:hover {
+            background-color: #026286;
+            color: white;
+            animation: buttonScale 0.3s ease forwards;
+        }
+        @keyframes buttonScale {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <div style="display: flex; align-items: center;">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./gs.html">Games</a></li>
+            <li><a href="./apps.html">Apps</a></li>
+            <li><a href="./ex.html">Exploits</a></li>
+            <li><a href="./pr.html">Proxies</a></li>
+        </div>
+        <div class="dropdown">
+            <a class="nav-link">Cloak Tab<span class="arrow-down"></span></a>
+            <div class="dropdown-content">
+                <a href="#" class="nav-link dropdown-option" onclick="changeFaviconAndTitle('https://www.google.com/favicon.ico', 'Google')">Google</a>
+                <a href="#" class="nav-link dropdown-option" onclick="changeFaviconAndTitle('https://ssl.gstatic.com/images/branding/product/2x/hh_drive_96dp.png', 'Google Drive')">Google Drive</a>
+                <a href="#" class="nav-link dropdown-option" onclick="changeFaviconAndTitle('https://raw.githubusercontent.com/PlayFlixo/playflixo/main/Assets/google-doc-favicon.png', 'Google Docs')">Google Docs</a>
+                <a href="#" class="nav-link dropdown-option" onclick="changeFaviconAndTitle('https://assets-global.website-files.com/5d6db64572061db9c481aaeb/60182f5c9e9d2a1f6fead710_classlink-icon-symbol-large.png', 'Wildcat Launchpad')">ClassLink</a>
+                <a href="#" class="nav-link dropdown-option" onclick="changeFaviconAndTitle('https://i0.wp.com/www.mpslakers.com/wp-content/uploads/2020/01/schoology-logo.png?fit=511%2C511&ssl=1', 'Home | Schoology')">Schoology</a>
+                <a href="#" class="nav-link dropdown-option" onclick="changeFaviconAndTitle('https://resources.finalsite.net/images/f_auto,q_auto,t_image_size_1/v1667482730/drk12org/idrzgqs3vcg2upruomdg/ic.png', 'Infinite Campus')">Infinite Campus</a>
+                <a href="#" class="nav-link dropdown-option" onclick="changeFaviconAndTitle('https://assets.clever.com/resource-icons/apps/5fd279ea0ab69b00013f8036/icon_60043f6.png', 'SmartPass')">SmartPass</a>
+            </div>
+        </div>
+    </ul>
+</nav>
+
+<div class="homepage">
+    <div class="announcements">
+        <h2>Announcements</h2>
+        <p>New feature released!</p>
+        <p>Bug fixes deployed.</p>
+        <p>Upcoming maintenance scheduled.</p>
+    </div>
+    <div class="vertical-line"></div>
+    <div class="horizontal-line"></div>
+    <div class="bottom-right-buttons">
+        <button onclick="window.location.href = 'https://google.com';">Button 1</button>
+        <button onclick="window.location.href = 'https://example.com/page2';">Button 2</button>
+        <button onclick="window.location.href = 'https://example.com/page3';">Button 3</button>
+        <button onclick="window.location.href = 'https://example.com/page4';">Button 4</button>
+    </div>
+</div>
+
+<script>
+    function changeFaviconAndTitle(faviconUrl, title) {
+        // Change favicon
+        var favicon = document.querySelector('link[rel="icon"]');
+        favicon.href = faviconUrl;
+
+        // Change tab title
+        document.title = title;
+    }
+
+    var dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(function(dropdown) {
+        dropdown.addEventListener('click', function() {
+            dropdown.classList.toggle('open');
+        });
+    });
+</script>
+
+</body>
+</html>
