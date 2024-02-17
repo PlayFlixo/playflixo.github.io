@@ -9,30 +9,40 @@
 - [Description](#description)
 - [Features](#features)
 - [Deployments](#deployments)
+- [URL's](#url's)
 - [License](#license)
 
 ## Description
 
-Provide a brief overview of what your project does and why it's useful. Include any key features or functionalities.
-
-## Demo
-
-Include a link to a live demo or provide instructions for accessing a demo if applicable.
+Unblocked games, apps, exploits, and proxies for school, work, or on your own time.
 
 ## Features
 
 List out the main features or functionalities of your project.
 
-- Feature 1
-- Feature 2
-- Feature 3
+- 600+ Games
+- 3 Apps
+- 20+ Exploits
+- 30+ Proxies
 
-## Installation
+## URL's
 
-Provide step-by-step instructions on how to install and set up your project locally. Include any dependencies that need to be installed and how to install them.
+Certified Domains
+- <a href="https://project-neutron.site">project-neutron.site</a>
+- <a href="https://ezmath.site">ezmath.site</a>
+- <a href="https://algebrafornoobs.site">algebrafornoobs.site</a>
+- <a href="https://mathforschool.site">mathforschool.site</a>
+Vercel
+- Coming Soon
+Cloudflare Pages
+- project-neutron.pages.dev
+Heroku
+- Coming Soon
 
-```bash
-# Example installation steps
-git clone https://github.com/yourusername/yourproject.git
-cd yourproject
-npm install
+## To-Do List
+
+- Deploy to Vercel and Heroku
+- More deployments to Vercel, Cloudflare Pages, and Heroku
+- Update README.md to make it more user friendly
+- Add images to /gs.html
+- Add more games to /gs.html
