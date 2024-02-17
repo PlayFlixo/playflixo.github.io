@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/PlayFlixo/playflixo.github.io/assets/images/pn-logo.png" alt="PN Logo" width="200">
+  <img src="https://raw.githubusercontent.com/PlayFlixo/playflixo.github.io/main/assets/images/pn-logo.png" alt="PN Logo" width="200">
   <h1>Project Neutron</h1>
   <p>Unblocked games for school, work, or on your own time.</p>
 </div>
