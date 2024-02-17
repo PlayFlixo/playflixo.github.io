@@ -1,17 +1,14 @@
 <div align="center">
-  <h1>Project Name</h1>
-  <p>Short description or tagline for your project.</p>
+  <img src="https://github.com/PlayFlixo/playflixo.github.io/assets/images/pn-logo.png" alt="PN Logo" width="200">
+  <h1>Project Neutron</h1>
+  <p>Unblocked games for school, work, or on your own time.</p>
 </div>
 
 ## Table of Contents
 
 - [Description](#description)
-- [Demo](#demo)
 - [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
 - [Deployments](#deployments)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Description
