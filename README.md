@@ -37,7 +37,7 @@ Vercel
 - Coming Soon
 
 Cloudflare Pages
-- project-neutron.pages.dev
+- <a href="https://project-neutron.pages.dev">project-neutron.pages.dev</a>
 
 Heroku
 - Coming Soon
