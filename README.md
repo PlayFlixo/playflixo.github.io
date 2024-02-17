@@ -1,6 +1,7 @@
-# Project Name
-
-Short description or tagline for your project.
+<div align="center">
+  <h1>Project Name</h1>
+  <p>Short description or tagline for your project.</p>
+</div>
 
 ## Table of Contents
 
@@ -9,6 +10,7 @@ Short description or tagline for your project.
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Deployments](#deployments)
 - [Contributing](#contributing)
 - [License](#license)
 
