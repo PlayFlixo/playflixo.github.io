@@ -32,11 +32,11 @@ Certified Domains
 - <a href="https://ezmath.site">ezmath.site</a>
 - <a href="https://algebrafornoobs.site">algebrafornoobs.site</a>
 - <a href="https://mathforschool.site">mathforschool.site</a>
-Vercel
+-Vercel
 - Coming Soon
-Cloudflare Pages
+-Cloudflare Pages
 - project-neutron.pages.dev
-Heroku
+-Heroku
 - Coming Soon
 
 ## To-Do List
