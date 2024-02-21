@@ -1,0 +1,2160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script defer src="https://analytics.us.umami.is/script.js" data-website-id="be5f8945-a14d-47b5-92b9-784879a99bab"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flixo by Project Neutron</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+<style>
+
+
+/*-----------------------------------*\
+ * #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+
+  /**
+   * colors
+   */
+
+  --rich-black-fogra-29: hsl(225, 25%, 9%);
+  --rich-black-fogra-39: hsl(170, 21%, 5%);
+  --raisin-black: hsl(228, 13%, 15%);
+  --eerie-black: hsl(207, 19%, 11%);
+  --light-gray: hsl(0, 3%, 80%);
+  --gunmetal-1: hsl(229, 15%, 21%);
+  --gunmetal-2: hsl(216, 22%, 18%);
+  --gainsboro: hsl(0, 7%, 88%);
+  --citrine: hsl(57, 97%, 45%);
+  --xiketic: hsl(253, 21%, 13%);
+  --gray-x: hsl(0, 0%, 74%);
+  --white: hsl(0, 100%, 100%);
+  --black: hsl(0, 0%, 0%);
+  --jet: hsl(0, 0%, 20%);
+
+  /**
+   * typography
+   */
+
+  --ff-poppins: 'Poppins', sans-serif;
+
+  --fs-1: 36px;
+  --fs-2: 32px;
+  --fs-3: 30px;
+  --fs-4: 24px;
+  --fs-5: 20px;
+  --fs-6: 18px;
+  --fs-7: 16px;
+  --fs-8: 15px;
+  --fs-9: 14px;
+  --fs-10: 13px;
+  --fs-11: 12px;
+  --fs-12: 11px;
+
+  --fw-500: 500;
+  --fw-700: 700;
+
+  /**
+   * transition
+   */
+
+  --transition-1: 0.15s ease;
+  --transition-2: 0.25s ease-in;
+
+  /**
+   * spacing
+   */
+
+  --section-padding: 100px;
+
+}
+
+
+
+
+
+/*-----------------------------------*\
+ * #RESET
+\*-----------------------------------*/
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li { list-style: none; }
+
+a { text-decoration: none; }
+
+a,
+img,
+span,
+input,
+button,
+ion-icon { display: block; }
+
+input {
+  font: inherit;
+  width: 100%;
+  border: none;
+}
+
+select,
+button {
+  font: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+html {
+  font-family: var(--ff-poppins);
+  scroll-behavior: smooth;
+}
+
+body { background: var(--eerie-black); }
+
+body.active { overflow: hidden; }
+
+
+
+
+
+/*-----------------------------------*\
+ * #REUSED STYLE
+\*-----------------------------------*/
+
+.container { padding-inline: 15px; }
+
+/**
+ * TITLES & SUBTITLES
+ */
+
+.h1,
+.h2,
+.h3 {
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.h1 { font-size: var(--fs-1); }
+
+.h2 { font-size: var(--fs-2); }
+
+.h3 { font-size: var(--fs-6); }
+
+.section-subtitle {
+  color: var(--citrine);
+  font-size: var(--fs-11);
+  font-weight: var(--fw-500);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.section-title { text-align: center; }
+
+/**
+ * BADGE
+ */
+
+.badge {
+  color: var(--white);
+  font-size: var(--fs-12);
+  font-weight: var(--fw-700);
+  border: 2px solid transparent;
+  padding: 2px 10px;
+}
+
+.badge-fill {
+  background: var(--white);
+  color: var(--raisin-black);
+}
+
+.badge-outline { border-color: var(--white); }
+
+/**
+ * MOVIE META
+ */
+
+.meta-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px 25px;
+  margin-bottom: 50px;
+}
+
+.badge-wrapper,
+.ganre-wrapper,
+.date-time {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px 10px;
+}
+
+.ganre-wrapper > a {
+  color: var(--gainsboro);
+  font-size: var(--fs-9);
+  font-weight: var(--fw-500);
+  transition: var(--transition-1);
+}
+
+.ganre-wrapper > a:is(:hover, :focus) { color: var(--citrine); }
+
+.date-time { gap: 15px; }
+
+.date-time > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--gainsboro);
+  font-size: var(--fs-9);
+  font-weight: var(--fw-500);
+}
+
+.date-time ion-icon {
+  --ionicon-stroke-width: 50px;
+  color: var(--citrine);
+}
+
+/**
+ * BUTTONS
+ */
+
+.btn {
+  color: var(--white);
+  font-size: var(--fs-11);
+  font-weight: var(--fw-700);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 30px;
+  border: 2px solid var(--citrine);
+  border-radius: 50px;
+  transition: var(--transition-1);
+}
+
+.btn > ion-icon { font-size: 18px; }
+
+.btn-primary { background: var(--rich-black-fogra-29); }
+
+.btn-primary:is(:hover, :focus) {
+  background: var(--citrine);
+  color: var(--xiketic);
+}
+
+/**
+ * MOVIE CARD
+ */
+
+.movies-list {
+  display: grid;
+  gap: 50px;
+}
+
+.movie-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.movie-card .card-banner {
+  position: relative;
+  background: var(--gunmetal-1);
+  aspect-ratio: 2 / 3;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  transition: var(--transition-1);
+}
+
+.movie-card .card-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transition: var(--transition-1);
+}
+
+.movie-card .card-banner:hover { box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.5); }
+
+.movie-card .card-banner:hover::after { background: hsla(0, 0%, 100%, 0.05); }
+
+.movie-card .card-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie-card .title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.movie-card .card-title {
+  color: var(--white);
+  font-size: var(--fs-7);
+  transition: var(--transition-1);
+}
+
+.movie-card .card-title:is(:hover, :focus) { color: var(--citrine); }
+
+.movie-card .title-wrapper time {
+  color: var(--citrine);
+  font-size: var(--fs-9);
+  font-weight: var(--fw-500);
+}
+
+.movie-card .card-meta {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+}
+
+.movie-card .badge { color: var(--citrine); }
+
+.movie-card .duration { margin-left: auto; }
+
+.movie-card :is(.duration, .rating) {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--gainsboro);
+  font-size: var(--fs-11);
+  font-weight: var(--fw-500);
+}
+
+.movie-card :is(.duration, .rating) ion-icon {
+  font-size: 13px;
+  --ionicon-stroke-width: 50px;
+  color: var(--citrine);
+}
+
+
+
+
+
+/*-----------------------------------*\
+ * #HEADER
+\*-----------------------------------*/
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-block: 25px;
+  transition: var(--transition-2);
+  z-index: 4;
+}
+
+.header.active {
+  background: var(--eerie-black);
+  padding-block: 20px;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-actions { display: none; }
+
+.menu-open-btn {
+  color: var(--white);
+  font-size: 40px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  background: var(--eerie-black);
+  width: 100%;
+  max-width: 300px;
+  height: 100%;
+  box-shadow: -1px 0 3px hsl(0, 0%, 0%, 0.2);
+  transition: 0.15s ease-in;
+  visibility: hidden;
+  z-index: 3;
+}
+
+.navbar.active {
+  right: 0;
+  visibility: visible;
+  transition: 0.25s ease-out;
+}
+
+.navbar-top {
+  padding: 30px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-close-btn {
+  color: var(--white);
+  font-size: 25px;
+  padding: 5px;
+}
+
+.menu-close-btn ion-icon { --ionicon-stroke-width: 80px; }
+
+.navbar-list {
+  border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+  margin-bottom: 30px;
+}
+
+.navbar-link {
+  color: var(--white);
+  font-size: var(--fs-8);
+  font-weight: var(--fw-500);
+  padding: 10px 25px;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+  transition: var(--transition-1);
+}
+
+.navbar-link:is(:hover, :focus) { color: var(--citrine); }
+
+.navbar-social-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-social-link {
+  font-size: 20px;
+  color: var(--white);
+  transition: var(--transition-1);
+}
+
+.navbar-social-link:is(:hover, :focus) { color: var(--citrine); }
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: hsla(204, 18%, 11%, 0.8);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  transition: var(--transition-2);
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+
+
+
+/*-----------------------------------*\
+ * #HERO
+\*-----------------------------------*/
+
+.hero {
+  background: url("https://github.com/PlayFlixo/filmlane/blob/master/assets/images/south-park-header.png?raw=true") no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 750px;
+  height: 100vh;
+  max-height: 1000px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-block: var(--section-padding);
+}
+
+.hero-content { margin-top: 60px; }
+
+.hero-subtitle {
+  color: var(--citrine);
+  font-size: var(--fs-4);
+  font-weight: var(--fw-700);
+  margin-bottom: 10px;
+}
+
+.hero-title { margin-bottom: 30px; }
+
+.hero-title > strong { color: var(--citrine); }
+
+
+
+
+
+
+
+
+/*-----------------------------------*\
+ * #TOP RATED
+\*-----------------------------------*/
+
+.top-rated {
+  background: url("../images/top-rated-bg.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-block: var(--section-padding);
+}
+
+.top-rated .section-title { margin-bottom: 50px; }
+
+.top-rated .filter-list {
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.top-rated .filter-btn {
+  position: relative;
+  background: var(--rich-black-fogra-39);
+  color: var(--light-gray);
+  font-size: var(--fs-10);
+  font-weight: var(--fw-700);
+  text-transform: uppercase;
+  padding: 17px 25px;
+  border-radius: 4px;
+  box-shadow: inset 0 3px 7px hsla(0, 0%, 0%, 0.8);
+}
+
+.top-rated .filter-btn:focus {
+  color: var(--citrine);
+  text-shadow: 0 3px 25px hsla(57, 97%, 45%, 0.5);
+}
+
+.top-rated .filter-btn:focus::before,
+.top-rated .filter-btn:focus::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--citrine);
+  width: 2px;
+  height: 15px;
+}
+
+.top-rated .filter-btn:focus::before { left: 0; }
+
+.top-rated .filter-btn:focus::after { right: 0; }
+
+
+
+
+
+/*-----------------------------------*\
+ * #TV SEREIS
+\*-----------------------------------*/
+
+.tv-series {
+  background: url("../images/tv-series-bg.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-block: var(--section-padding);
+}
+
+.tv-series .section-title { margin-bottom: 50px; }
+
+
+
+
+/*-----------------------------------*\
+ * #MOVIE DETAIL 
+\*-----------------------------------*/
+
+.movie-detail {
+  background: url("../images/movie-detail-bg.png") no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 160px;
+  padding-bottom: var(--section-padding);
+}
+
+.movie-detail-banner {
+  position: relative;
+  background: var(--gunmetal-1);
+  max-width: 300px;
+  margin-inline: auto;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+
+.movie-detail-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-btn {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 120px;
+  color: var(--white);
+  transition: var(--transition-1);
+}
+
+.play-btn:hover { background: hsla(0, 0%, 0%, 0.25); }
+
+.detail-subtitle {
+  font-size: var(--fs-5);
+  color: var(--citrine);
+  font-weight: var(--fw-700);
+  margin-bottom: 10px;
+}
+
+.detail-title { margin-bottom: 20px; }
+
+.detail-title strong { color: var(--citrine); }
+
+.movie-detail .meta-wrapper { margin-bottom: 30px; }
+
+.storyline {
+  color: var(--gray-x);
+  font-size: var(--fs-9);
+  font-weight: var(--fw-500);
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.details-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px 40px;
+  max-width: 460px;
+  background: var(--gunmetal-2);
+  padding: 25px;
+  border: 1px solid var(--jet);
+  border-radius: 4px;
+  margin-bottom: 30px;
+}
+
+.details-actions .share ion-icon {
+  font-size: 25px;
+  color: var(--white);
+  margin-inline: auto;
+}
+
+.details-actions .share span {
+  color: var(--gainsboro);
+  font-size: var(--fs-11);
+  transition: var(--transition-1);
+}
+
+.details-actions .share:is(:hover, :focus) span { color: var(--citrine); }
+
+.details-actions .title {
+  color: var(--white);
+  font-weight: var(--fw-700);
+}
+
+.details-actions .text {
+  font-size: var(--fs-11);
+  color: var(--gainsboro);
+}
+
+.details-actions .btn-primary {
+  font-size: 10px;
+  padding: 13px 26px;
+  letter-spacing: 0;
+  background: transparent;
+}
+
+.details-actions .btn-primary:is(:hover, :focus) { background: var(--citrine); }
+
+
+@media (min-width: 550px) {
+
+  /**
+   * CUSTOM PROPERTY
+   */
+
+  :root {
+
+    /**
+     * typography
+     */
+
+    --fs-1: 42px;
+
+  }
+
+
+
+  /**
+   * REUSED STYLE
+   */
+
+  .container {
+    max-width: 540px;
+    margin-inline: auto;
+  }
+
+  /* MOVIE CARD */
+
+  .movies-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px 30px;
+  }
+
+
+
+  /**
+   * HERO
+   */
+
+  .hero { min-height: unset; }
+
+  .hero-content { margin-top: 20px; }
+
+
+
+  /**
+   * MOVIE DETAIL
+   */
+
+  .detail-subtitle { --fs-5: 22px; }
+
+  .detail-title { --fs-1: 46px; }
+
+}
+
+
+
+
+
+/**
+ * responsive for large than 768px screen
+ */
+
+@media (min-width: 768px) {
+
+  /**
+   * CUSTOM PROPERTY
+   */
+
+  :root {
+
+    /**
+     * typography
+     */
+
+    --fs-2: 36px;
+
+  }
+
+
+
+  /**
+   * REUSED STYLE
+   */
+
+  .container { max-width: 720px; }
+
+
+
+ 
+
+
+
+  /**
+   * HERO
+   */
+
+  .hero-content { margin-top: 90px; }
+
+/**
+ * responsive for large than 992px screen
+ */
+
+@media (min-width: 992px) {
+
+  /**
+   * REUSED STYLE
+   */
+
+  .container { max-width: 960px; }
+
+
+
+
+
+
+
+
+  /**
+   * HERO
+   */
+
+  .hero { background-position: right; }
+
+  .hero .container { width: 950px; }
+
+  .hero-content {
+    margin-top: 100px;
+    max-width: 600px;
+  }
+
+
+
+
+/**
+ * responsive for large than 1200px screen
+ */
+
+@media (min-width: 1200px) {
+
+  /**
+   * CUSTOM PROPERTY
+   */
+
+  :root {
+
+    /**
+     * typography
+     */
+
+    --fs-1: 60px;
+    --fs-4: 26px;
+
+  }
+
+
+
+  /**
+   * REUSED STYLE
+   */
+
+  .container { max-width: 1320px; }
+
+  /* MOVIE CARD */
+
+  .movies-list { grid-template-columns: repeat(4, 1fr); }
+
+
+
+
+
+
+  /**
+   * HERO
+   */
+
+  .hero .container { width: 1320px; }
+  
+</style>
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <div class="overlay" data-overlay></div>
+
+      <a href="./index.html" class="logo">
+        <img src="./assets/images/logo.svg" alt="Filmlane logo">
+      </a>
+        </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="hero">
+        <div class="container">
+
+          <div class="hero-content">
+
+            <p class="hero-subtitle">Filmlane</p>
+
+            <h1 class="h1 hero-title">
+              Unlimited <strong>Movies</strong>, TV Shows, & More.
+            </h1>
+
+            <div class="meta-wrapper">
+
+              <div class="badge-wrapper">
+                <div class="badge badge-fill">TV-MA</div>
+
+                <div class="badge badge-outline">360p</div>
+              </div>
+
+              <div class="ganre-wrapper">
+                <a href="#">Animation,</a>
+
+                <a href="#">Comedy</a>
+              </div>
+
+              <div class="date-time">
+
+                <div>
+                  <ion-icon name="calendar-outline"></ion-icon>
+
+                  <time datetime="1997-2022">1997-2022</time>
+                </div>
+
+                <div>
+                  <ion-icon name="time-outline"></ion-icon>
+
+                  <time datetime="PT128M">22 min</time>
+                </div>
+
+              </div>
+
+            </div>
+
+            <button class="btn btn-primary">
+              <ion-icon name="play"></ion-icon>
+
+              <span>Watch now</span>
+            </button>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+
+
+      <!-- 
+        - #TOP RATED
+      -->
+
+      <section class="top-rated">
+        <div class="container">
+
+          <p class="section-subtitle">Online Streaming</p>
+
+          <h2 class="h2 section-title">Movies (A-Z)</h2>
+
+          <ul class="movies-list">
+<li>
+              <div class="movie-card">
+
+                <a class="game" onclick="openGame('https://drive.google.com/file/d/1D7A1jATb2B8Ml-y0mAQQ98ML2nKebyhJ/preview')">
+                  <figure class="card-banner">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRRFA-f2LfQOmTNcFs4mGFAJt0LurlXDrxljlZhoQsEtQTF4nZcp3z91RdMr1CN2pKiSdRRA" alt="American Psycho poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a class="game" onclick="openGame('https://drive.google.com/file/d/1D7A1jATb2B8Ml-y0mAQQ98ML2nKebyhJ/preview')">
+                    <h3 class="card-title">American Psycho</h3>
+                  </a>
+
+                  <time datetime="2000">2000</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">1080p</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT106M">104 min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>8.5</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+            <li>
+              <div class="movie-card">
+
+                <a class="game" onclick="openGame('https://tartarus.feralhosting.com/firepig/JP/MOVIES/The%20Avengers%20%282012%29/The.Avengers.2012.720p.BluRay.x264.YIFY.mp4')">
+                  <figure class="card-banner">
+                    <img src="https://i.ebayimg.com/images/g/1MUAAOSwoLpfJHqq/s-l1200.jpg" alt="Avengers poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a class="game" onclick="openGame('https://tartarus.feralhosting.com/firepig/JP/MOVIES/The%20Avengers%20%282012%29/The.Avengers.2012.720p.BluRay.x264.YIFY.mp4')">
+                    <h3 class="card-title">Avengers</h3>
+                  </a>
+
+                  <time datetime="2012">2012</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">720p</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT122M">143 min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>9.1</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="movie-card">
+
+                <a class="game" onclick="openGame('https://tartarus.feralhosting.com/firepig/JP/MOVIES/Avengers%20Age%20of%20Ultron%20%282015%29%20%5B1080p%5D/Avengers.Age.of.Ultron.2015.1080p.BluRay.x264.YIFY.mp4')">
+                  <figure class="card-banner">
+                    <img src="https://lumiere-a.akamaihd.net/v1/images/p_avengersageofultron_19907_c62cd1c0.jpeg" alt="Avengers 2 poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a class="game" onclick="openGame('https://tartarus.feralhosting.com/firepig/JP/MOVIES/Avengers%20Age%20of%20Ultron%20%282015%29%20%5B1080p%5D/Avengers.Age.of.Ultron.2015.1080p.BluRay.x264.YIFY.mp4')">
+                    <h3 class="card-title">Avengers: Age of Ultron</h3>
+                  </a>
+
+                  <time datetime="2015">2015</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">1080p</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT104M">141 min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>8.2</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="movie-card">
+
+                <a class="game" onclick="openGame('https://ftphost.nohum.net/video/Bee%20Movie.mp4')">
+                  <figure class="card-banner">
+                    <img src="https://resizing.flixster.com/18icyRbPRhjrgvKB_7-9Z8lNrI0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzA0MzljODE3LTgzMDMtNGRiOS1iOTM0LTM1ODk1ODMwNDIyOC53ZWJw" alt="Bee Movie poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a class="game" onclick="openGame('https://ftphost.nohum.net/video/Bee%20Movie.mp4')">
+                    <h3 class="card-title">Bee Movie</h3>
+                  </a>
+
+                  <time datetime="2007">2007</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">720p</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT106M">91 min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>5.3</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="movie-card">
+
+                <a class="game" onclick="openGame('https://drive.google.com/file/d/1zs2JXhwwFB8QXgigGkRWD-v98bHXdjJM/preview')">
+                  <figure class="card-banner">
+                    <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQjNPZINa_L4CLCZcmDduw6T0ODrTfH0o7ir2-6_qWl1_Ar1nOP-qvr4ZvRoGiQxOpt5dCyww" alt="Black Adam poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a class="game" onclick="openGame('https://drive.google.com/file/d/1zs2JXhwwFB8QXgigGkRWD-v98bHXdjJM/preview')">
+                    <h3 class="card-title">Black Adam</h3>
+                  </a>
+
+                  <time datetime="2022">2022</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">1080p</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT115M">125 min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>8.8</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="movie-card">
+
+                <a class="game" onclick="openGame('https://docs.google.com/file/d/0B5X6-QPsPegbSkFyaktkdDZLMVE/preview?resourcekey=0-8dxXadC9CpeN-GVa666QQg')">
+                  <figure class="card-banner">
+                    <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSWLpFIizYBkShXUyIbFuAH8CcaW3UiuqCtcdeFvSEL4pPZkiZ9DdWrRR7W2oaEJOhfORF6" alt="Boiler Room poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a class="game" onclick="openGame('https://docs.google.com/file/d/0B5X6-QPsPegbSkFyaktkdDZLMVE/preview?resourcekey=0-8dxXadC9CpeN-GVa666QQg')">
+                    <h3 class="card-title">Boiler Room poster</h3>
+                  </a>
+
+                  <time datetime="2000">2000</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">720p</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT176M">120 min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>7.8</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="movie-card">
+
+                <a class="game" onclick="openGame('https://tartarus.feralhosting.com/firepig/JP/MOVIES/Captain%20America%20The%20Winter%20Soldier%20%282014%29%20%5B1080p%5D/Captain.America.The.Winter.Soldier.2014.1080p.BluRay.x264.YIFY.mp4')">
+                  <figure class="card-banner">
+                    <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTfP_GN63NrHEjZ4unvJbGE7neVs5W_6SlUmYHscaXhUSHMkce3eYBL8eiDbwRt4e0oCv0n" alt="Captain America: The Winter Soldier poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a class="game" onclick="openGame('https://tartarus.feralhosting.com/firepig/JP/MOVIES/Captain%20America%20The%20Winter%20Soldier%20%282014%29%20%5B1080p%5D/Captain.America.The.Winter.Soldier.2014.1080p.BluRay.x264.YIFY.mp4')">
+                    <h3 class="card-title">Captain America: The Winter Soldier</h3>
+                  </a>
+
+                  <time datetime="2014">2014</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">1080p</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT127M">136 min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>9.2</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+                        <li>
+              <div class="movie-card">
+
+                <a class="game" onclick="openGame('https://drive.google.com/file/d/19X_r-XCkUWSJGU3tzTMq1EIlbSY-sQMm/view')">
+                  <figure class="card-banner">
+                    <img src="https://dx35vtwkllhj9.cloudfront.net/universalstudios/cocaine-bear/images/regions/us/onesheet.jpg" alt="Cocaine Bear poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a class="game" onclick="openGame('https://drive.google.com/file/d/19X_r-XCkUWSJGU3tzTMq1EIlbSY-sQMm/view')">
+                    <h3 class="card-title">Cocaine Bear</h3>
+                  </a>
+
+                  <time datetime="2023">2023</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">720p</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT115M">95 min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>7.1</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="movie-card">
+
+                <a class="game" onclick="openGame('https://drive.google.com/file/d/1jTaYeN8rn3xmnpND8nlX8Dqh-IMjZnAX/preview')">
+                  <figure class="card-banner">
+                    <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTRb_XdtNkaN_HkDNLAff_8mX3_n3TmSD4IjrFzBIafa68QV4RS9vhUBEUE-yosp1qJVk1Y" alt="Coraline poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a class="game" onclick="openGame('https://drive.google.com/file/d/1jTaYeN8rn3xmnpND8nlX8Dqh-IMjZnAX/preview')">
+                    <h3 class="card-title">Coraline</h3>
+                  </a>
+
+                  <time datetime="2009">2009</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">360p</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT116M">100 min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>7.4</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="movie-card">
+
+                <a class="game" onclick="openGame('https://drive.google.com/file/d/0B4aPDxdbXvz7ZWgxUEhSVm50T0U/preview?resourceKey=0-6f8LbaCPmAn17TlDTSoxKw')">
+                  <figure class="card-banner">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTylsuAYz-pPG9Cvj4R4sZGnnollN65RyrWuy8vU_J7JA8mf42CPafkCK_I72wdkAOo6xph3w" alt="Ghostbusters poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a class="game" onclick="openGame('https://drive.google.com/file/d/0B4aPDxdbXvz7ZWgxUEhSVm50T0U/preview?resourceKey=0-6f8LbaCPmAn17TlDTSoxKw')">
+                    <h3 class="card-title">Ghostbusters</h3>
+                  </a>
+
+                  <time datetime="2022">1984</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">720p</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT127M">105 min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>8.8</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="movie-card">
+
+                <a class="game" onclick="openGame('https://tartarus.feralhosting.com/firepig/JP/MOVIES/Iron%20Man%202008%201080p%20BluRay%20x264%20%20AAC%20-%20Ozlem/Iron%20Man%202008%201080p%20BluRay%20x264%20%20AAC%20-%20Ozlem.mp4')">
+                  <figure class="card-banner">
+                    <img src="https://m.media-amazon.com/images/S/pv-target-images/144540abcf5eb3ca17ea30a5ac3554dcd011a2880ccfba9694d13b27362060fe.jpg" alt="Iron Man poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a class="game" onclick="openGame('https://tartarus.feralhosting.com/firepig/JP/MOVIES/Iron%20Man%202008%201080p%20BluRay%20x264%20%20AAC%20-%20Ozlem/Iron%20Man%202008%201080p%20BluRay%20x264%20%20AAC%20-%20Ozlem.mp4')">
+                    <h3 class="card-title">Iron Man</h3>
+                  </a>
+
+                  <time datetime="2008">2008</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">1080p</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT131M">126 min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>9.1</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+            <li>
+              <div class="movie-card">
+
+                <a class="game" onclick="openGame('https://tartarus.feralhosting.com/firepig/JP/MOVIES/Iron%20Man%203%202013%201080p%20BluRay%20x264%20ac3%20vice/Iron%20Man%203%202013%201080p%20BluRay%20x264%20ac3%20vice.mp4')">
+                  <figure class="card-banner">
+                    <img src="https://resizing.flixster.com/52N-5S_PaNdR1zQAzoXk48koaT8=/206x305/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p9259486_p_v13_aa.jpg" alt="Iron Man 3 poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a class="game" onclick="openGame('https://tartarus.feralhosting.com/firepig/JP/MOVIES/Iron%20Man%203%202013%201080p%20BluRay%20x264%20ac3%20vice/Iron%20Man%203%202013%201080p%20BluRay%20x264%20ac3%20vice.mp4')">
+                    <h3 class="card-title">Iron Man 3</h3>
+                  </a>
+
+                  <time datetime="2013">2013</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">1080p</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT122M">130 min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>7.8</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+            <li>
+              <div class="movie-card">
+
+                <a class="game" onclick="openGame('https://drive.google.com/file/d/0B1vIGLoz_v3ndkFxT3NuR1REZTg/preview?resourceKey=0--rOOhqAKVqB-6mHMQNa6-Q')">
+                  <figure class="card-banner">
+                    <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTu-Cw7NNyGLYRgeFOSzpuIB7Hum-y7aipXj2nt480_HpbAAZwKIMRAb_UTbLx-2p76lyZQ" alt="Kill Zone 2 poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a class="game" onclick="openGame('https://drive.google.com/file/d/0B1vIGLoz_v3ndkFxT3NuR1REZTg/preview?resourceKey=0--rOOhqAKVqB-6mHMQNa6-Q')">
+                    <h3 class="card-title">Kill Zone 2</h3>
+                  </a>
+
+                  <time datetime="2015">2015</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">360p</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT122M">120 min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>6.4</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+            <li>
+              <div class="movie-card">
+
+                <a class="game" onclick="openGame('https://broflmao.com/video/movies/action/No.Time.To.Die.mp4')">
+                  <figure class="card-banner">
+                    <img src="https://m.media-amazon.com/images/M/MV5BYWQ2NzQ1NjktMzNkNS00MGY1LTgwMmMtYTllYTI5YzNmMmE0XkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_.jpg" alt="No Time to Die poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a class="game" onclick="openGame('https://broflmao.com/video/movies/action/No.Time.To.Die.mp4')">
+                    <h3 class="card-title">No Time To Die</h3>
+                  </a>
+
+                  <time datetime="2021">2021</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">N/A</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT122M">163 min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>8.8</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+            <li>
+              <div class="movie-card">
+
+                <a class="game" onclick="openGame('https://ftphost.nohum.net/video/Ratatouille.mp4')">
+                  <figure class="card-banner">
+                    <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRud3cFzI_P88DIRu2v_DfRc-SCc5_241_2V4CWXTw4C1NzljpvlcDET6syrpoP7opPTIY3" alt="Ratatouille poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a class="game" onclick="openGame('https://ftphost.nohum.net/video/Ratatouille.mp4')">
+                    <h3 class="card-title">Ratatouille</h3>
+                  </a>
+
+                  <time datetime="2007">2007</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">N/A</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT122M">111 min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>8.7</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+            <li>
+              <div class="movie-card">
+
+                <a class="game" onclick="openGame('https://drive.google.com/file/d/1ZdZM6rFTgeYVPhHUdp01yGo6NtbbiBsZ/preview')">
+                  <figure class="card-banner">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmdLHys3rkC_13_PGgBrWvoUufM-LDnBx341ub8rIT3KWe80j3uEdO3IY9B_sG0WvoNr632A" alt="Spider-Man poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a class="game" onclick="openGame('https://drive.google.com/file/d/1ZdZM6rFTgeYVPhHUdp01yGo6NtbbiBsZ/preview')">
+                    <h3 class="card-title">Spider-Man</h3>
+                  </a>
+
+                  <time datetime="2002">2002</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">720p</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT122M">121 min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>6.7</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+            <li>
+  <div class="movie-card">
+    <a class="game" onclick="openGame('https://drive.google.com/file/d/1W62plE73vkqblTz_h5JiB5ieDv4JumtY/preview')">
+      <figure class="card-banner">
+        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQFtbxKGIVheVKeZsoE0GLjM6o5vft_OIhq2L8Kd9kneFSkrrLhWPxTxd2ijEWlZsjpugwSUQ" alt="Spider-Man: Far From Home poster">
+      </figure>
+    </a>
+
+    <div class="title-wrapper">
+      <a class="game" onclick="openGame('https://drive.google.com/file/d/1W62plE73vkqblTz_h5JiB5ieDv4JumtY/preview')">
+        <h3 class="card-title">Spider-Man: Far From Home</h3>
+      </a>
+
+      <time datetime="2019">2019</time>
+    </div>
+
+    <div class="card-meta">
+      <div class="badge badge-outline">720p</div>
+
+      <div class="duration">
+        <ion-icon name="time-outline"></ion-icon>
+
+        <time datetime="PT129M">129 min</time>
+      </div>
+
+      <div class="rating">
+        <ion-icon name="star"></ion-icon>
+
+        <data></data>
+      </div>
+    </div>
+  </div>
+</li>
+
+<li>
+  <div class="movie-card">
+    <a class="game" onclick="openGame('https://drive.google.com/file/d/1mIHsA4xZt4KRWnzJr6CPNtuOXDhrh9NH/preview')">
+      <figure class="card-banner">
+        <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQYON0DptHcqBMQSp5Rd4lCTqz6KGM9fN5LfyhsNqu3Ntmf84fSD5LgIp_2Y1Hofd4KiLxoKU" alt="Spider-Man: Into the Spider-Verse poster">
+      </figure>
+    </a>
+
+    <div class="title-wrapper">
+      <a class="game" onclick="openGame('https://drive.google.com/file/d/1mIHsA4xZt4KRWnzJr6CPNtuOXDhrh9NH/preview')">
+        <h3 class="card-title">Spider-Man: Into the Spider-Verse</h3>
+      </a>
+
+      <time datetime="2018">2018</time>
+    </div>
+
+    <div class="card-meta">
+      <div class="badge badge-outline">1080p</div>
+
+      <div class="duration">
+        <ion-icon name="time-outline"></ion-icon>
+
+        <time datetime="PT117M">117 min</time>
+      </div>
+
+      <div class="rating">
+        <ion-icon name="star"></ion-icon>
+
+        <data></data>
+      </div>
+    </div>
+  </div>
+</li>
+
+<li>
+  <div class="movie-card">
+    <a class="game" onclick="openGame('https://drive.google.com/file/d/12mcPJib64bzrTli2Rj3AdtTo5OsDtseY/preview')">
+      <figure class="card-banner">
+        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQOAflgzSe954w4GQcmJxsu1UBXT4Pldyw3u7btGBVxL43FGC71dOK9sm7anJPuDFRg0p8e" alt="The Amazing Spider-Man poster">
+      </figure>
+    </a>
+
+    <div class="title-wrapper">
+      <a class="game" onclick="openGame('https://drive.google.com/file/d/12mcPJib64bzrTli2Rj3AdtTo5OsDtseY/preview')">
+        <h3 class="card-title">The Amazing Spider-Man</h3>
+      </a>
+
+      <time datetime="2012">2012</time>
+    </div>
+
+    <div class="card-meta">
+      <div class="badge badge-outline">1080p</div>
+
+      <div class="duration">
+        <ion-icon name="time-outline"></ion-icon>
+
+        <time datetime="PT136M">136 min</time>
+      </div>
+
+      <div class="rating">
+        <ion-icon name="star"></ion-icon>
+
+        <data></data>
+      </div>
+    </div>
+  </div>
+</li>
+
+<li>
+  <div class="movie-card">
+    <a class="game" onclick="openGame('https://drive.google.com/file/d/1uAIhY1Xuuz8thpArtbNjHm18nDpu7aNR/preview')">
+      <figure class="card-banner">
+        <img src="https://www.sonypictures.com/sites/default/files/styles/max_560x840/public/chameleon/title-movie/456177_ASM2HE_1400x2100_Eng%20%28US%29_1.jpg?itok=ZuZ1Pfyl" alt="The Amazing Spider-Man 2 poster">
+      </figure>
+    </a>
+
+    <div class="title-wrapper">
+      <a class="game" onclick="openGame('https://drive.google.com/file/d/1uAIhY1Xuuz8thpArtbNjHm18nDpu7aNR/preview')">
+        <h3 class="card-title">The Amazing Spider-Man 2</h3>
+      </a>
+
+      <time datetime="2014">2014</time>
+    </div>
+
+    <div class="card-meta">
+      <div class="badge badge-outline">360p</div>
+
+      <div class="duration">
+        <ion-icon name="time-outline"></ion-icon>
+
+        <time datetime="PT142M">142 min</time>
+      </div>
+
+      <div class="rating">
+        <ion-icon name="star"></ion-icon>
+
+        <data></data>
+      </div>
+    </div>
+  </div>
+</li>
+
+<li>
+  <div class="movie-card">
+    <a class="game" onclick="openGame('https://drive.google.com/file/d/1LH3PJNBw3qf0dJvs-YrXO8nQrTG9QQ5N/preview')">
+      <figure class="card-banner">
+        <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTrEIU0W0z4RE0Y5nUxYgfl1pTgUkQ1lCrBKbWjSu53DKAYFIR6x4j4VRP3hgWlJuX8vJ9ftQ" alt="The Simpsons Movie poster">
+      </figure>
+    </a>
+
+    <div class="title-wrapper">
+      <a class="game" onclick="openGame('https://drive.google.com/file/d/1LH3PJNBw3qf0dJvs-YrXO8nQrTG9QQ5N/preview')">
+        <h3 class="card-title">The Simpsons Movie</h3>
+      </a>
+
+      <time datetime="2007">2007</time>
+    </div>
+
+    <div class="card-meta">
+      <div class="badge badge-outline">720p</div>
+
+      <div class="duration">
+        <ion-icon name="time-outline"></ion-icon>
+
+        <time datetime="PT87M">87 min</time>
+      </div>
+
+      <div class="rating">
+        <ion-icon name="star"></ion-icon>
+
+        <data></data>
+      </div>
+    </div>
+  </div>
+</li>
+
+<li>
+  <div class="movie-card">
+    <a class="game" onclick="openGame('https://drive.google.com/file/d/1m2aPScFuj_ZkKq9i0kOJ4zBMMGutJdPb/preview')">
+      <figure class="card-banner">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDM_t4LrWIGMZMbLP-n55e-dwIQdBBYyrWiGzJJ0cBvSlBtD1Ip1q0rbW6pkV3ZBRhF_VbWQ" alt="The Wolverine poster">
+      </figure>
+    </a>
+
+    <div class="title-wrapper">
+      <a class="game" onclick="openGame('https://drive.google.com/file/d/1m2aPScFuj_ZkKq9i0kOJ4zBMMGutJdPb/preview')">
+        <h3 class="card-title">The Wolverine</h3>
+      </a>
+
+      <time datetime="2013">2013</time>
+    </div>
+
+    <div class="card-meta">
+      <div class="badge badge-outline">720p</div>
+
+      <div class="duration">
+        <ion-icon name="time-outline"></ion-icon>
+
+        <time datetime="PT126M">126 min</time>
+      </div>
+
+      <div class="rating">
+        <ion-icon name="star"></ion-icon>
+
+        <data></data>
+      </div>
+    </div>
+  </div>
+</li>
+
+<li>
+  <div class="movie-card">
+    <a class="game" onclick="openGame('https://drive.google.com/file/d/1zI3pQrWnLjA4lZvJpTr7cfnjGwWyw4fe/preview')">
+      <figure class="card-banner">
+        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTfLZW1y2uRTxoieLSsUDK6_UrPU3S3YrTrVQzlk5T7LGBN6GJyovCCNq9W1flJXfgKL02-mg" alt="Toy Story poster">
+      </figure>
+    </a>
+
+    <div class="title-wrapper">
+      <a class="game" onclick="openGame('https://drive.google.com/file/d/1zI3pQrWnLjA4lZvJpTr7cfnjGwWyw4fe/preview')">
+        <h3 class="card-title">Toy Story</h3>
+      </a>
+
+      <time datetime="1995">1995</time>
+    </div>
+
+    <div class="card-meta">
+      <div class="badge badge-outline">720p</div>
+
+      <div class="duration">
+        <ion-icon name="time-outline"></ion-icon>
+
+        <time datetime="PT81M">81 min</time>
+      </div>
+
+      <div class="rating">
+        <ion-icon name="star"></ion-icon>
+
+        <data></data>
+      </div>
+    </div>
+  </div>
+</li>
+
+<li>
+  <div class="movie-card">
+    <a class="game" onclick="openGame('https://drive.google.com/file/d/1NnuC1btpoRfOobCZzItHUtyXqGOc8LmK/preview')">
+      <figure class="card-banner">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ1NGpPvXz8gfY_3vgGd_w2feqUMH8ZKKEXOJWzWi8OjFQw7aQ_v8LLWFb-H9g4PULmT6ipk" alt="Toy Story 2 poster">
+      </figure>
+    </a>
+
+    <div class="title-wrapper">
+      <a class="game" onclick="openGame('https://drive.google.com/file/d/1NnuC1btpoRfOobCZzItHUtyXqGOc8LmK/preview')">
+        <h3 class="card-title">Toy Story 2</h3>
+      </a>
+
+      <time datetime="1999">1999</time>
+    </div>
+
+    <div class="card-meta">
+      <div class="badge badge-outline">720p</div>
+
+      <div class="duration">
+        <ion-icon name="time-outline"></ion-icon>
+
+        <time datetime="PT92M">92 min</time>
+      </div>
+
+      <div class="rating">
+        <ion-icon name="star"></ion-icon>
+
+        <data></data>
+      </div>
+    </div>
+  </div>
+</li>
+
+<li>
+  <div class="movie-card">
+    <a class="game" onclick="openGame('https://drive.google.com/file/d/1KQGQby_0tzWw-8bW7eFoY2hKQ5um_Hoy/preview')">
+      <figure class="card-banner">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJItMzWjXhcUYZwZcApxVgR4tLj8XW7tcET3nPEv1TYx88b_LtqGSLQeIT2XQs8x4aZ6cUPg" alt="Toy Story 3 poster">
+      </figure>
+    </a>
+
+    <div class="title-wrapper">
+      <a class="game" onclick="openGame('https://drive.google.com/file/d/1KQGQby_0tzWw-8bW7eFoY2hKQ5um_Hoy/preview')">
+        <h3 class="card-title">Toy Story 3</h3>
+      </a>
+
+      <time datetime="2010">2010</time>
+    </div>
+
+    <div class="card-meta">
+      <div class="badge badge-outline">720p</div>
+
+      <div class="duration">
+        <ion-icon name="time-outline"></ion-icon>
+
+        <time datetime="PT103M">103 min</time>
+      </div>
+
+      <div class="rating">
+        <ion-icon name="star"></ion-icon>
+
+        <data></data>
+      </div>
+    </div>
+  </div>
+</li>
+
+<li>
+  <div class="movie-card">
+    <a class="game" onclick="openGame('https://drive.google.com/file/d/1aG8kJewQjGR6-D-ix1dkKGfL25UaFBLc/preview')">
+      <figure class="card-banner">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpQIDNC5Jaj2_Y_z9p5C4kQjUN-72LaZ9tYv7hJLQPhS3NdnSt_xpC0VRaFobSKf9dFuNNlA" alt="Toy Story 4 poster">
+      </figure>
+    </a>
+
+    <div class="title-wrapper">
+      <a class="game" onclick="openGame('https://drive.google.com/file/d/1aG8kJewQjGR6-D-ix1dkKGfL25UaFBLc/preview')">
+        <h3 class="card-title">Toy Story 4</h3>
+      </a>
+
+      <time datetime="2019">2019</time>
+    </div>
+
+    <div class="card-meta">
+      <div class="badge badge-outline">720p</div>
+
+      <div class="duration">
+        <ion-icon name="time-outline"></ion-icon>
+
+        <time datetime="PT100M">100 min</time>
+      </div>
+
+      <div class="rating">
+        <ion-icon name="star"></ion-icon>
+
+        <data></data>
+      </div>
+    </div>
+  </div>
+</li>
+
+<li>
+  <div class="movie-card">
+    <a class="game" onclick="openGame('https://drive.google.com/file/d/1WtCVpUBz0GdNgzYXlc7ACjJtKjAMvdpk/preview')">
+      <figure class="card-banner">
+        <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSInKFt1-ZfDzVbKJi4p6N-IBTuXs18j-0g5roRi4bnFqNp2g1PCNDBP9Dm_HkYLa5rAzTzOg" alt="White Trash poster">
+      </figure>
+    </a>
+
+    <div class="title-wrapper">
+      <a class="game" onclick="openGame('https://drive.google.com/file/d/1WtCVpUBz0GdNgzYXlc7ACjJtKjAMvdpk/preview')">
+        <h3 class="card-title">White Trash</h3>
+      </a>
+
+      <time datetime="2017">2017</time>
+    </div>
+
+    <div class="card-meta">
+      <div class="badge badge-outline">720p</div>
+
+      <div class="duration">
+        <ion-icon name="time-outline"></ion-icon>
+
+        <time datetime="PT93M">93 min</time>
+      </div>
+
+      <div class="rating">
+        <ion-icon name="star"></ion-icon>
+
+        <data></data>
+      </div>
+    </div>
+  </div>
+</li>
+
+<li>
+  <div class="movie-card">
+    <a class="game" onclick="openGame('https://drive.google.com/file/d/1cGokt9ydbnllJN2qkInBIsucP1KFb7io/preview')">
+      <figure class="card-banner">
+        <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSCJhbiUCcU00aokilvrcfL9VJU_cKagwuw2XdeTDy4dc0K42XbOW9zuyN4FXpRLvWNBcBC3E" alt="X-Men poster">
+      </figure>
+    </a>
+
+    <div class="title-wrapper">
+      <a class="game" onclick="openGame('https://drive.google.com/file/d/1cGokt9ydbnllJN2qkInBIsucP1KFb7io/preview')">
+        <h3 class="card-title">X-Men</h3>
+      </a>
+
+      <time datetime="2000">2000</time>
+    </div>
+
+    <div class="card-meta">
+      <div class="badge badge-outline">720p</div>
+
+      <div class="duration">
+        <ion-icon name="time-outline"></ion-icon>
+
+        <time datetime="PT104M">104 min</time>
+      </div>
+
+      <div class="rating">
+        <ion-icon name="star"></ion-icon>
+
+        <data></data>
+      </div>
+    </div>
+  </div>
+</li>
+
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #TV SERIES
+      -->
+
+      <section class="tv-series">
+        <div class="container">
+
+          <p class="section-subtitle">Best TV Series</p>
+
+          <h2 class="h2 section-title">World Best TV Series</h2>
+
+          <ul class="movies-list">
+
+            <li>
+              <div class="movie-card">
+
+                <a class="game" onclick="openGame('')">
+                  <figure class="card-banner">
+                    <img src="./assets/images/series-1.png" alt="Moon Knight movie poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a class="game" onclick="openGame('')">
+                    <h3 class="card-title">Moon Knight</h3>
+                  </a>
+
+                  <time datetime="2022">2022</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">2K</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT47M">47 min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>8.6</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="movie-card">
+
+                <a class="game" onclick="openGame('')">
+                  <figure class="card-banner">
+                    <img src="./assets/images/series-2.png" alt="Halo movie poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a class="game" onclick="openGame('')">
+                    <h3 class="card-title">Halo</h3>
+                  </a>
+
+                  <time datetime="2022">2022</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">2K</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT59M">59 min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>8.8</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="movie-card">
+
+                <a class="game" onclick="openGame('')">
+                  <figure class="card-banner">
+                    <img src="./assets/images/series-3.png" alt="Vikings: Valhalla movie poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a class="game" onclick="openGame('')">
+                    <h3 class="card-title">Vikings: Valhalla</h3>
+                  </a>
+
+                  <time datetime="2022">2022</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">2K</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT51M">51 min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>8.3</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="movie-card">
+
+                <a class="game" onclick="openGame('')">
+                  <figure class="card-banner">
+                    <img src="./assets/images/series-4.png" alt="Money Heist movie poster">
+                  </figure>
+                </a>
+
+                <div class="title-wrapper">
+                  <a class="game" onclick="openGame('')">
+                    <h3 class="card-title">Money Heist</h3>
+                  </a>
+
+                  <time datetime="2017">2017</time>
+                </div>
+
+                <div class="card-meta">
+                  <div class="badge badge-outline">4K</div>
+
+                  <div class="duration">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="PT70M">70 min</time>
+                  </div>
+
+                  <div class="rating">
+                    <ion-icon name="star"></ion-icon>
+
+                    <data>8.3</data>
+                  </div>
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+    </article>
+  </main>
+  <script>
+    function openGame(url) {
+        var win;
+
+        if (url) {
+            if (win) {
+                win.focus();
+            } else {
+                win = window.open();
+                win.document.body.style.margin = '0';
+                win.document.body.style.height = '100vh';
+                var iframe = win.document.createElement('iframe');
+                iframe.style.border = 'none';
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                iframe.style.margin = '0';
+                iframe.scrolling="no"
+                iframe.src = url;
+                win.document.body.appendChild(iframe);
+
+                var interval = setInterval(function() {
+                    if (win.closed) {
+                        clearInterval(interval);
+                        win = undefined;
+                    }
+                }, 500);
+            }
+        }
+    }
+</script>
+</body>
+
+</html>
