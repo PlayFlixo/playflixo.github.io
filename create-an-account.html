@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <style>
+        /* Combined CSS styles */
+        :root {
+            --primary-color: #e50914;
+            --dark-color: #141414;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+    font-family: "Arial", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: #000;
+    color: #999;
+    overflow: hidden; /* Add this line to prevent scrolling */
+}
+
+
+        .showcase {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            background: url('https://github.com/PlayFlixo/netflix/blob/master/img/header.jpg?raw=true') no-repeat center center/cover;
+        }
+
+        .showcase::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: inset 120px 100px 250px #000, inset -120px -100px 250px #000;
+        }
+
+        .showcase-top {
+            position: relative;
+            height: 90px;
+            z-index: 2;
+        }
+
+        .showcase-top img {
+            width: 170px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .showcase-top a {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translate(-50%, -50%);
+        }
+
+        .showcase-content {
+            position: relative;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 9rem;
+            z-index: 2;
+        }
+
+        .showcase-content h1 {
+            font-weight: 600;
+            font-size: 4rem;
+            line-height: 1.1;
+            margin: 0 0 2rem 0;
+            color: #fff;
+        }
+
+        .showcase-content p {
+            text-transform: uppercase;
+            color: #fff;
+            font-weight: 400;
+            font-size: 1.9rem;
+            line-height: 1.1;
+            margin: 0 0 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 0.4rem 1.3rem;
+            font-size: 1rem;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            margin-right: 0.5rem;
+            outline: none;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
+            border-radius: 2px;
+            text-decoration: none; /* Remove underline */
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn-rounded {
+            border-radius: 5px;
+        }
+
+        .btn-xl {
+            font-size: 1.6rem;
+            padding: 1.5rem 2.1rem;
+            text-transform: uppercase;
+        }
+
+        .btn-icon {
+            margin-left: 0.5rem;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Media Queries */
+        @media (max-width: 960px) {
+            /* Your responsive styles here */
+        }
+
+        @media (max-width: 700px) {
+            /* Your responsive styles here */
+        }
+    </style>
+    <title>Create an Account - Flixo</title>
+</head>
+<body>
+    <header class="showcase">
+        <div class="showcase-top">
+            <img src="img/logo.png" alt="Flixo by Project Neutron" />
+            <a href="/sign-in" class="btn btn-rounded">Sign In</a>
+        </div>
+    </header>
+    <div class="content">
+        <iframe src="https://www.authpro.com/auth/PN_Games/?action=reg" frameborder="0"></iframe>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
