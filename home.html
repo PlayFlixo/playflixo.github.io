@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Neutron</title>
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            position: relative; /* Ensure the body is positioned relatively */
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 9%; /* Position the line 8% from the top */
+            left: 0;
+            width: 100%;
+            height: 4px; /* Set the height of the line */
+            background-color: #026286; /* Color of the line */
+            z-index: 999; /* Ensure the line is above other content */
+        }
+        nav {
+            background-color: transparent; /* Semi-transparent white background */
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000; /* Ensure the navigation bar is above other content */
+            top: 0.75%; /* Adjusting the position from the top */
+            display: flex; /* Make the navigation bar a flex container */
+            justify-content: center; /* Center align the items */
+            align-items: center; /* Center the items vertically */
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            display: flex; /* Make the list a flex container */
+        }
+        li {
+            margin: 0 20px;
+        }
+        a {
+            position: relative;
+            color: black; /* Set the text color to black */
+            text-decoration: none;
+            font-size: 24px; /* Set the font size to 24px */
+            font-weight: bold; /* Make the text bold */
+            font-family: 'Lexend', sans-serif; /* Use the Lexend font */
+        }
+        a::before,
+        a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0; /* Set the left position to 0 */
+            width: 100%; /* Set the width to 100% */
+            height: 4px; /* Increase the height of the line */
+            background-color: black; /* Set the line color to black */
+            transition: transform 0.3s ease-in-out;
+            transform: scaleX(0); /* Initially scale the line to 0 */
+            transform-origin: center; /* Set the transform origin to the center */
+        }
+        a:hover::before,
+        a:hover::after {
+            transform: scaleX(1); /* Scale the line to its full width on hover */
+        }
+        .vertical-line {
+            position: absolute;
+            bottom: 0;
+            right: 33.33%; /* Position the line 33.33% from the right side */
+            height: 91%;
+            width: 4px; /* Set the width of the line */
+            background-color: #026286; /* Color of the line */
+            z-index: 999; /* Ensure the line is above other content */
+        }
+        .homepage {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://github.com/PlayFlixo/project-neutron/raw/main/assets/images/bg-home.png');
+            /* Corrected URL by changing 'blob' to 'raw' */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            z-index: 0; /* Ensure the background image is behind the navigation bar */
+        }
+        .announcements {
+            position: absolute;
+            top: 5%;
+            right: 0;
+            width: 33.33%;
+            height: 50%;
+            color: #000000;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: auto;
+            text-align: center; /* Center align text */
+            z-index: 100; /* Ensure announcements are above the background image */
+        }
+        .announcements h2 {
+            font-size: 32px; /* Changed to 21px */
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .announcements p {
+            font-size: 16px; /* Changed to 16px */
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .horizontal-line {
+            position: absolute;
+            bottom: 45.5%; /* Position the line 45.5% from the bottom */
+            right: 0; /* Position the line 33.33% from the right side */
+            width: 33.33%; /* Set the width of the line */
+            height: 4px; /* Set the height of the line */
+            background-color: #026286; /* Color of the line */
+            z-index: 999; /* Ensure the line is above other content */
+        }
+        .bottom-right-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 3.33%; /* Adjusted to 3.33% from the right */
+            left: 69.6666%; /* Adjusted to 69.6666% from the left */
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .bottom-right-buttons button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: transparent;
+            color: #000;
+            border: 2px solid #026286;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .bottom-right-buttons button:hover {
+            background-color: #026286;
+            color: white;
+            animation: buttonScale 0.3s ease forwards;
+        }
+        @keyframes buttonScale {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./gs.html">Games</a></li>
+        <li><a href="./apps.html">Apps</a></li>
+        <li><a href="./ex.html">Exploits</a></li>
+        <li><a href="./pr.html">Proxies</a></li>
+    </ul>
+</nav>
+
+<div class="homepage">
+    <div class="announcements">
+        <h2>Announcements</h2>
+        <p>New feature released!</p>
+        <p>Bug fixes deployed.</p>
+        <p>Upcoming maintenance scheduled.</p>
+    </div>
+    <div class="vertical-line"></div>
+    <div class="horizontal-line"></div>
+    <div class="bottom-right-buttons">
+        <button onclick="window.location.href = 'https://google.com';">Recommendation Form</button>
+        <button onclick="window.location.href = 'https://example.com/page2';">Button 2</button>
+        <button onclick="window.location.href = 'https://example.com/page3';">Button 3</button>
+        <button onclick="window.location.href = 'https://example.com/page4';">Alternate Links</button>
+    </div>
+</div>
+
+<script>
+    function changeFaviconAndTitle(faviconUrl, title) {
+        // Change favicon
+        var favicon = document.querySelector('link[rel="icon"]');
+        favicon.href = faviconUrl;
+
+        // Change tab title
+        document.title = title;
+    }
+</script>
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Website</title>
+<script>
+window.onload = function() {
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        alert("This website is not optimized for mobile devices. Please access it from a comouter. Thank you.");
+    }
+};
+</script>
+</head>
+</html>
