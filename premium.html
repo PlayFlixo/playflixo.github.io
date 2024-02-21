@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-image: url('https://github.com/PlayFlixo/playflixo.github.io/blob/main/assets/images/login-background.png?raw=true');
+        background-size: cover;
+        background-position: center;
+    }
+
+    .login-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0;
+    }
+
+    .left-text {
+    width: 40%;
+    text-align: left; /* Align text to the left */
+    padding: 20px;
+    font-size: 24px; /* Make the text bigger */
+    color: white; /* Set text color to white */
+    font-family: 'Lexend Bold', sans-serif; /* Use Lexend Bold font */
+}
+
+
+    .embed-container {
+        width: 50%;
+        height: 100vh;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    @media screen and (max-width: 768px) {
+        .login-container {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .login-form {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .embed-container {
+            width: 100%;
+            height: 50vh;
+            justify-content: center;
+        }
+
+        .left-text {
+            width: 100%;
+        }
+    }
+</style>
+
+</head>
+<body>
+    <div class="login-container">
+        <div class="left-text">
+            <h3>Login or Register to gain access to</h3>
+            <ul>
+                <li>300+ games</li>
+                <li>50+ movies</li>
+                <li>30+ proxies</li>
+            </ul>
+        </div>
+        <form class="login-form" action="#" method="POST">
+            <!-- Your login form inputs go here -->
+        </form>
+        <div class="embed-container">
+            <!-- Your embedded content goes here -->
+            <iframe src="https://www.authpro.com/auth/PN_Games/" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
+    </div>
+</body>
+</html>
