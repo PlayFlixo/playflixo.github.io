@@ -3,20 +3,6 @@
 <h>‎ </h3>
 </div>
 
-<?php
-// Define your IP address
-$allowed_ip = '69.4.98.194';
-
-// Get the visitor's IP address
-$visitor_ip = $_SERVER['REMOTE_ADDR'];
-
-// Check if the visitor's IP matches the allowed IP
-if ($visitor_ip !== $allowed_ip) {
-    // If not allowed, deny access
-    header('HTTP/1.0 403 Forbidden');
-    echo "Access Forbidden";
-    exit();
-}
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9494126940648215"
      crossorigin="anonymous"></script>
