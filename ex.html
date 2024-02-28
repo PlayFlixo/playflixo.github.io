@@ -1,48 +1,11 @@
-<div>
-<h3>‎ </h3>
-<h>‎ </h3>
-</div>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <!-- Default Statcounter code for Project Neutron http://project-neutron.site
--->
-    <script type="text/javascript">
-    var sc_project=12971228; 
-    var sc_invisible=1; 
-    var sc_security="596decf8"; 
-    </script>
-    <script type="text/javascript"
-    src="https://www.statcounter.com/counter/counter.js" async></script>
-    <noscript><div class="statcounter"><a title="Web Analytics Made Easy -
-    Statcounter" href="https://statcounter.com/" target="_blank"><img
-    class="statcounter" src="https://c.statcounter.com/12971228/0/596decf8/1/"
-    alt="Web Analytics Made Easy - Statcounter"
-    referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-    <!-- End of Statcounter Code -->
-    <script defer src="https://analytics.us.umami.is/script.js" data-website-id="be5f8945-a14d-47b5-92b9-784879a99bab"></script>
-    <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "l5r8mon5ij");
-    </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B8K2DH2XEM"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-B8K2DH2XEM');
-    </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Game Library</title>
-  <style>
-    body {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Library</title>
+    <style>
+            body {
       background-color: #1d1f25;
       font-family: 'Lexend Bold', sans-serif;
       color: #ffffff;
@@ -95,39 +58,36 @@
 .game:nth-child(-n+11) {
   margin-top: 6%;
 }
-  </style>
+    </style>
 </head>
 <body>
-
   
 <a class="game" onclick="openGame('./ex/ti-84-plus-ce-games.html')">
   <img src="https://target.scene7.com/is/image/Target/GUEST_4e3e9c1a-de32-4b29-a0e4-b72175784a43?wid=488&hei=488&fmt=pjpeg">
   <h3>Ti-84 Plus Ce Games</h3>
 </a>
 
-<a class="game" onclick="openGame('./ex/insec.html')">
+<a class="game" onclick="openInsecurely()">
   <img src="https://cdn-images.himalayas.app/2iutxewcqo1ylimikld48sax50pu">
-  <h3>Insecurly</h3>
+  <h3>INSECURLY</h3>
 </a>
-</body>
-</html>
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script>
 function openGame(url) {
   window.open(url, '_blank');
 }
+
+function openInsecurely() {
+  // Alert before opening the insecure link
+  alert("INSECURLY can be trackable by some schools. Proceed with caution.");
+  // Open the insecure link
+  openGame('./ex/insec.html');
+}
 </script>
+
 </body>
 </html>
+
 
 
 <!DOCTYPE html>
