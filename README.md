@@ -33,6 +33,9 @@ Certified Domains
 - <a href="https://algebrafornoobs.site">algebrafornoobs.site</a>
 - <a href="https://mathforschool.site">mathforschool.site</a>
 
+GitHub Pages
+- <a href="https://playflixo.github.io">playflixo.github.io</a>
+- 
 Vercel
 - Coming Soon
 
