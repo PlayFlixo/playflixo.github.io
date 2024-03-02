@@ -31,7 +31,7 @@ Certified Domains
 - <a href="https://project-neutron.site">project-neutron.site</a>
 - <a href="https://ezmath.site">ezmath.site</a>
 - <a href="https://algebrafornoobs.site">algebrafornoobs.site</a>
-- <a href="https://mathforschool.site">mathforschool.site</a>
+- <a href="https://math4school.site">math4school.site</a>
 
 GitHub Pages
 - <a href="https://playflixo.github.io">playflixo.github.io</a>
