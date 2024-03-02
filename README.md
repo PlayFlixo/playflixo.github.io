@@ -35,7 +35,7 @@ Certified Domains
 
 GitHub Pages
 - <a href="https://playflixo.github.io">playflixo.github.io</a>
-- 
+
 Vercel
 - Coming Soon
 
