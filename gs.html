@@ -137,9 +137,27 @@
     nav a:hover::after {
       transform: scaleX(1);
     }
+    
+        #gif-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white overlay */
+        z-index: 9999;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    #content {
+        di
   </style>
 </head>
 <body>
+
+<div id="gif-overlay" style="background-image: url('https://github.com/PlayFlixo/playflixo.github.io/blob/main/assets/images/Project%20Neutron%20(1).gif?raw=true')">
+</div>
 
 <div style="position: absolute; top: 12%; left: 50%; transform: translateX(-50%); text-align: center; color: white; font-size: 24px; font-family: 'Lexend Bold', sans-serif;">Games</div>
 
@@ -2183,6 +2201,18 @@
             }
         }
     }
+</script>
+
+<script>
+    window.onload = function() {
+        var gifOverlay = document.getElementById('gif-overlay');
+        var content = document.getElementById('content');
+
+        setTimeout(function() {
+            gifOverlay.style.display = 'none';
+            content.style.display = 'block';
+        }, 2900); // 4.8 seconds in milliseconds
+    };
 </script>
 </body>
 </html>
